@@ -19,30 +19,44 @@ void Batalha::enviarNaveParaBatalha(){
 void Batalha::tirarNaveDoConserto(){
 
     this->navesEsperandoBatalha->empilha(navesConserto->retirarFila());
+
 }
 
-void Batalha::receberComando(int comando){
-    switch (comando){
+void Batalha::printarPilha(){
 
-    case Entrar_Em_Batalha:
+    this->navesEsperandoBatalha->printar();
+    
+}
+
+void Batalha::printarFila(){
+
+    this->navesConserto->printar();
+
+}
+
+void Batalha::enviarNaveConserto(std::string idNave){
+
+    this->navesConserto->enfileira(this->navesBatalha->retirar(idNave));
+
+}
+
+void Batalha::receberComando(std::string comando){
+
+    if(comando == "0")
         enviarNaveParaBatalha();
-        break;
-    case Nave_Consertada:
+
+    if(comando == "-1")
         tirarNaveDoConserto();
-        break;
 
-    case Printar_Fila:
+    if(comando == "-2")
         printarPilha();
-        break;
 
-    case Printar_Pilha:
+    if(comando == "-3")
         printarFila();
-        break;
 
-    default:
+    if(comando !="0" && comando !="-1" && comando !="-2"  && comando !="-3" )
         enviarNaveConserto(comando);
-        break;
-    }
+    
 }
 
 ListaEncadeada* Batalha::getNavesBatalha(){

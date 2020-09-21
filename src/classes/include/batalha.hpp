@@ -4,7 +4,7 @@
 #include "listaEncadeada.hpp"
 #include "pilha.hpp"
 #include "fila.hpp"
-#include "enums/enumComandos.hpp"
+#include <string>
 
 namespace TP {
     
@@ -19,7 +19,7 @@ namespace TP {
             void tirarNaveDoConserto();
             void printarPilha();
             void printarFila();
-            void enviarNaveConserto(int idNave);
+            void enviarNaveConserto(std::string idNave);
 
         public:
 
@@ -29,7 +29,7 @@ namespace TP {
             Fila* getNavesConserto();
             Pilha* getNavesEsperandoBatalha();
 
-            void receberComando(int comando);
+            void receberComando(std::string comando);
 
             void setNavesBatalha(ListaEncadeada* navesBatalha);
             void setNavesConserto(Fila* navesConserto);

@@ -1,4 +1,5 @@
 #include "include/pilha.hpp"
+#include <iostream>
 
 using namespace TP;
 
@@ -58,6 +59,20 @@ void Pilha::empilha(No* no){
         
         auxiliar->setProx(no);
 
+    }
+
+}
+
+void Pilha::printar(){
+
+    No* auxiliar = ultimoNo;
+
+    while(auxiliar != NULL){
+
+        std::cout << auxiliar->getItem()->getId() << std::endl;
+
+        auxiliar = auxiliar->getAnterior();
+        
     }
 
 }

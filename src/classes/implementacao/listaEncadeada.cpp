@@ -44,3 +44,37 @@ void ListaEncadeada::adicionar(No* no){
     }
 
 }
+
+No* ListaEncadeada::retirar(std::string idNave){
+
+    No* auxiliarUlt = this->ultimoNo;
+    No* auxiliarPrimeiro = this->primeiroNo;
+    No* auxiliarTroca = NULL;
+
+    while((auxiliarUlt->getItem()->getId() != auxiliarPrimeiro->getItem()->getId()) || 
+            (auxiliarPrimeiro->getProx()->getItem()->getId() != auxiliarUlt->getAnterior()->getItem()->getId())){
+
+        if(auxiliarUlt->getItem()->getId() == idNave){
+        
+            auxiliarTroca = auxiliarUlt;
+        
+        }else if(auxiliarPrimeiro->getItem()->getId() == idNave){
+         
+            auxiliarTroca = auxiliarPrimeiro;
+        
+        }
+            auxiliarUlt = auxiliarUlt->getAnterior();
+            auxiliarPrimeiro = auxiliarPrimeiro->getProx();
+        
+    }
+
+    if(auxiliarTroca != NULL){
+
+        auxiliarTroca->getProx()->setAnterior(auxiliarTroca->getAnterior());
+        auxiliarTroca->getAnterior()->setProx(auxiliarTroca->getProx());
+
+    }
+
+    return auxiliarTroca;
+
+}

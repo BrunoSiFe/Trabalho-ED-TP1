@@ -28,6 +28,8 @@ namespace TP {
             No* retirarPilha();
 
             void empilha(No* no);
+
+            void printar();
     };
 }
 

@@ -1,6 +1,7 @@
 #ifndef TP_LISTA
 #define TP_LISTA
 #include "no.hpp"
+#include <string>
 
 namespace TP {
     
@@ -25,6 +26,7 @@ namespace TP {
             void setNo(No* no);
             
             void adicionar(No* no);
+            No* retirar(std::string idNave);
     };
 }
 

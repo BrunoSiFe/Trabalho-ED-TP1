@@ -24,6 +24,9 @@ namespace TP {
             void setNo(No* no);
 
             No* retirarFila();
+            void enfileira(No* no);
+
+            void printar();
     };
 }
 
