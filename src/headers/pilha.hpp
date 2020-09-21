@@ -16,6 +16,7 @@ namespace TP {
         public:
 
             Pilha();
+            Pilha(No* no, No* primeiroNo, No* ultimoNo);
 
             No* getPrimeiro();
             No* getUltimoNo();
@@ -28,6 +29,7 @@ namespace TP {
             No* retirarPilha();
 
             void empilha(No* no);
+            void empilhaConserto(No* no);
 
             void printar();
     };

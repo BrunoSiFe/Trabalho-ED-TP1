@@ -4,3 +4,4 @@ build/
 
 src/tp1
 src/*.o
+src/tp1.testresult

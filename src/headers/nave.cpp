@@ -2,6 +2,9 @@
 
 using namespace TP;
 
+
+Nave::Nave() : Nave(0){}
+
 Nave::Nave(int id){
     this->id = id;
 }

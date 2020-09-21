@@ -3,6 +3,8 @@
 
 using namespace TP;
 
+No::No() : No (new Nave(),NULL,NULL){}
+
 No::No(Nave* item, No* noAnterior, No* noProximo){
     this->item = item;
     this->noAnterior = noAnterior;
@@ -22,10 +24,14 @@ Nave* No::getItem(){
 }
 
 void No::setAnterior(No* noAnterior){
+    if(this->noAnterior == NULL)
+        this->noAnterior = new No();
     this->noAnterior = noAnterior;
 }
 
 void No::setProx(No* noProximo){
+    if(this->noProximo == NULL)
+        this->noProximo = new No();
     this->noProximo = noProximo;
 }
 

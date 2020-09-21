@@ -13,6 +13,7 @@ namespace TP {
 
         public:
 
+            No();
             No(Nave* item, No* noAnterior, No* noProximo);
 
             Nave* getItem();

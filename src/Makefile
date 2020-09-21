@@ -1,7 +1,7 @@
 
 
 CC=g++
-CFLAGS=-Wall -Wextra 
+CFLAGS=-Wall -Wextra -g
 EXEC=./tp1 
 TMPOUT=tp1.testresult
 
@@ -49,7 +49,7 @@ batalha.o: headers/batalha.cpp
 	$(CC) $(CFLAGS) -c headers/batalha.cpp -o batalha.o
 
 test: $(EXEC)
-	@bash run_tests.sh $(EXEC) $(TMPOUT)
+	@bash run_test.sh $(EXEC) $(TMPOUT)
 
 clean: 
 	rm -rf nave.o

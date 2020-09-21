@@ -1,8 +1,15 @@
 #include "listaEncadeada.hpp"
+#include <iostream>
 
 using namespace TP;
 
-ListaEncadeada::ListaEncadeada(){
+ListaEncadeada::ListaEncadeada() : ListaEncadeada(new No(),new No(),new No()){
+}
+
+ListaEncadeada::ListaEncadeada(No* no, No* ultimoNo, No* primeiroNo){
+    this->no = no;
+    this->ultimoNo = ultimoNo;
+    this->primeiroNo = primeiroNo;
 }
 
 No* ListaEncadeada::getPrimeiro(){
@@ -31,7 +38,7 @@ void ListaEncadeada::setNo(No* no){
 
 void ListaEncadeada::adicionar(No* no){
 
-    No* auxiliar;
+    No* auxiliar = new No();
 
     if(no != NULL){
 
@@ -43,35 +50,46 @@ void ListaEncadeada::adicionar(No* no){
         
     }
 
+    if(primeiroNo->getItem()->getId() == 0){
+        primeiroNo = no;
+    }
+
+    std::cout << "nave " << no->getItem()->getId() << " em combate" << std::endl;
+
 }
 
-No* ListaEncadeada::retirar(long int idNave){
+No* ListaEncadeada::retirar(int idNave){
 
-    No* auxiliarUlt = this->ultimoNo;
-    No* auxiliarPrimeiro = this->primeiroNo;
+    No* auxiliar = this->primeiroNo;
     No* auxiliarTroca = NULL;
 
-    while((auxiliarUlt->getItem()->getId() != auxiliarPrimeiro->getItem()->getId()) || 
-            (auxiliarPrimeiro->getProx()->getItem()->getId() != auxiliarUlt->getAnterior()->getItem()->getId())){
+    while(auxiliar != NULL){
 
-        if(auxiliarUlt->getItem()->getId() == idNave){
+        if(auxiliar->getItem()->getId() == idNave){
         
-            auxiliarTroca = auxiliarUlt;
-        
-        }else if(auxiliarPrimeiro->getItem()->getId() == idNave){
-         
-            auxiliarTroca = auxiliarPrimeiro;
+            auxiliarTroca = auxiliar;
+            break;
         
         }
-            auxiliarUlt = auxiliarUlt->getAnterior();
-            auxiliarPrimeiro = auxiliarPrimeiro->getProx();
+
+        auxiliar = auxiliar->getProx();
+        
         
     }
 
     if(auxiliarTroca != NULL){
 
-        auxiliarTroca->getProx()->setAnterior(auxiliarTroca->getAnterior());
-        auxiliarTroca->getAnterior()->setProx(auxiliarTroca->getProx());
+        if(auxiliarTroca->getProx() != NULL){
+
+            auxiliarTroca->getProx()->setAnterior(auxiliarTroca->getAnterior());
+        
+        }
+
+        if(auxiliarTroca->getAnterior() !=NULL){
+            
+            auxiliarTroca->getAnterior()->setProx(auxiliarTroca->getProx());
+
+        }
 
     }
 

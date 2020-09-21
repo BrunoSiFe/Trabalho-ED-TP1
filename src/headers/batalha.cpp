@@ -2,12 +2,14 @@
 
 using namespace TP;
 
-Batalha::Batalha(){
+Batalha::Batalha() : Batalha(new ListaEncadeada(),new Fila(),new Pilha()){
 
-    this->navesConserto = new Fila();
-    this->navesBatalha = new ListaEncadeada();
-    this->navesEsperandoBatalha = new Pilha();
+}
 
+Batalha::Batalha(ListaEncadeada* navesBatalha,Fila* navesConserto,Pilha* navesEsperandoBatalha){
+    this->navesBatalha = navesBatalha;
+    this->navesConserto = navesConserto;
+    this->navesEsperandoBatalha = navesEsperandoBatalha;
 }
 
 void Batalha::enviarNaveParaBatalha(){
@@ -18,7 +20,7 @@ void Batalha::enviarNaveParaBatalha(){
 
 void Batalha::tirarNaveDoConserto(){
 
-    this->navesEsperandoBatalha->empilha(navesConserto->retirarFila());
+    this->navesEsperandoBatalha->empilhaConserto(navesConserto->retirarFila());
 
 }
 
@@ -42,7 +44,6 @@ void Batalha::enviarNaveConserto(int idNave){
 
 void Batalha::adicionarNaveParaPreparacao(int idNave){
 
-    printf("%s", "Aqui");
     Nave* nave = new Nave(idNave);
     No* no = new No(nave,NULL,NULL);
 

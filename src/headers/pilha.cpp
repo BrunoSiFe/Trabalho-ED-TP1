@@ -39,6 +39,8 @@ No* Pilha::retirarPilha(){
         ultimoNo = ultimoNo->getAnterior();
         ultimoNo->setProx(NULL);
 
+    }else{
+        ultimoNo=NULL;
     }
 
     return auxiliar;
@@ -47,19 +49,64 @@ No* Pilha::retirarPilha(){
 
 void Pilha::empilha(No* no){
 
-    No* auxiliar = new No(ultimoNo->getItem(),ultimoNo->getAnterior(),ultimoNo->getProx());
+    if(ultimoNo != NULL){
+        No* auxiliar = new No();
+        auxiliar->setAnterior(this->ultimoNo->getAnterior());
+        auxiliar->setProx(this->ultimoNo->getProx());
+        auxiliar->setItem(this->ultimoNo->getItem());
 
 
-    if(no != NULL){
+        if(no != NULL){
 
-        ultimoNo = no;
-
-        no->setAnterior(auxiliar);
-        no->setProx(NULL);
+            no->setAnterior(auxiliar);
+            no->setProx(NULL);
+            
+            ultimoNo = no;
         
-        auxiliar->setProx(no);
+            auxiliar->setProx(no);
 
+        }
+    }else{
+        if(no != NULL){
+
+            ultimoNo = no;
+
+            no->setAnterior(NULL);
+            no->setProx(NULL);
+
+        }
     }
+
+}
+
+void Pilha::empilhaConserto(No* no){
+
+    if(ultimoNo != NULL){
+        No* auxiliar = new No(ultimoNo->getItem(),ultimoNo->getAnterior(),ultimoNo->getProx());
+
+
+        if(no != NULL){
+
+            ultimoNo = no;
+
+            no->setAnterior(auxiliar);
+            no->setProx(NULL);
+        
+            auxiliar->setProx(no);
+
+        }
+    }else{
+        if(no != NULL){
+
+            ultimoNo = no;
+
+            no->setAnterior(NULL);
+            no->setProx(NULL);
+
+        }
+    }
+
+    std::cout << "nave " << no->getItem()->getId() << " consertada" << std::endl;
 
 }
 

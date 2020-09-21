@@ -14,6 +14,7 @@ namespace TP {
         public:
 
             Fila();
+            Fila(No* primeiroNo,No* ultimoNo, No* no);
 
             No* getPrimeiro();
             No* getUltimoNo();

@@ -3,7 +3,14 @@
 
 using namespace TP;
 
-Fila::Fila(){
+Fila::Fila() : Fila(new No(),new No(),new No()){
+}
+
+Fila::Fila(No* primeiroNo, No* ultimoNo, No* no){
+    this->primeiroNo = primeiroNo;
+    this->ultimoNo = ultimoNo;
+    this->no = no;
+
 }
 
 No* Fila::getPrimeiro(){
@@ -34,11 +41,13 @@ No* Fila::retirarFila(){
 
     No* auxiliar = new No(primeiroNo->getItem(),primeiroNo->getAnterior(),primeiroNo->getProx());
 
-    if(primeiroNo->getProx() !=NULL ){
-
+    if(primeiroNo->getProx() != NULL){
         primeiroNo = primeiroNo->getProx();
-        ultimoNo->setAnterior(NULL);
 
+        primeiroNo->setAnterior(NULL);
+
+    }else{
+        primeiroNo = NULL;
     }
 
     return auxiliar;
@@ -56,6 +65,12 @@ void Fila::enfileira(No* no){
         auxiliar->setProx(no);
 
     }
+
+    if(primeiroNo->getItem()->getId() == 0){
+        primeiroNo = no;
+    }
+
+    std::cout << "nave " << no->getItem()->getId() << " avariada" << std::endl;
 
 }
 

@@ -24,6 +24,7 @@ namespace TP {
         public:
 
             Batalha();
+            Batalha(ListaEncadeada* navesBatalha,Fila* navesConserto,Pilha* navesEsperandoBatalha);
 
             ListaEncadeada* getNavesBatalha();
             Fila* getNavesConserto();

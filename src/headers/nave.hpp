@@ -11,6 +11,8 @@ namespace TP {
 
         public:
 
+            Nave();
+
             Nave(int id);
 
             int getId();

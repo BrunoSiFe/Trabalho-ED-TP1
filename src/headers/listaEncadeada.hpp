@@ -15,6 +15,7 @@ namespace TP {
         public:
 
             ListaEncadeada();
+            ListaEncadeada(No* no,No* ultimoNo,No* primeiroNo);
 
             No* getPrimeiro();
             No* getUltimoNo();
@@ -26,7 +27,7 @@ namespace TP {
             void setNo(No* no);
             
             void adicionar(No* no);
-            No* retirar(long int idNave);
+            No* retirar(int idNave);
     };
 }
 
