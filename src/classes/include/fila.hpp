@@ -1,10 +1,10 @@
-#ifndef TP_LISTA
-#define TP_LISTA
-#include "classes/no.hpp"
+#ifndef TP_FILA
+#define TP_FILA
+#include "no.hpp"
 
 namespace TP {
     
-    class ListaEncadeada {
+    class Fila {
         private:
             
             No* primeiroNo;
@@ -13,7 +13,7 @@ namespace TP {
 
         public:
 
-            ListaEncadeada();
+            Fila();
 
             No* getPrimeiro();
             No* getUltimoNo();
@@ -22,6 +22,8 @@ namespace TP {
             void setPrimeiroNo(No* primeiroNo);
             void setUltimoNo(No* ultimoNo);
             void setNo(No* no);
+
+            No* retirarFila();
     };
 }
 

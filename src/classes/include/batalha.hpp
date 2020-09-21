@@ -1,9 +1,9 @@
 #ifndef TP_BATALHA
 #define TP_BATALHA
 
-#include "classes/listaEncadeada.hpp"
-#include "classes/pilha.hpp"
-#include "classes/fila.hpp"
+#include "listaEncadeada.hpp"
+#include "pilha.hpp"
+#include "fila.hpp"
 #include "enums/enumComandos.hpp"
 
 namespace TP {

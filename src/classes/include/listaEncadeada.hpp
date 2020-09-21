@@ -1,10 +1,10 @@
-#ifndef TP_PILHA
-#define TP_PILHA
-#include "classes/no.hpp"
+#ifndef TP_LISTA
+#define TP_LISTA
+#include "no.hpp"
 
 namespace TP {
     
-    class Pilha {
+    class ListaEncadeada {
         private:
             
             No* primeiroNo;
@@ -13,15 +13,18 @@ namespace TP {
 
         public:
 
-            Pilha();
+            ListaEncadeada();
 
             No* getPrimeiro();
             No* getUltimoNo();
             No* getNo();
 
+
             void setPrimeiroNo(No* primeiroNo);
             void setUltimoNo(No* ultimoNo);
             void setNo(No* no);
+            
+            void adicionar(No* no);
     };
 }
 

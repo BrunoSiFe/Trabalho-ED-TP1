@@ -1,4 +1,4 @@
-#include "classes/nave.hpp"
+#include "include/nave.hpp"
 
 using namespace TP;
 

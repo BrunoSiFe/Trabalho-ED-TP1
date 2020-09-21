@@ -1,4 +1,4 @@
-#include "classes/listaEncadeada.hpp"
+#include "include/listaEncadeada.hpp"
 
 using namespace TP;
 
@@ -29,3 +29,18 @@ void ListaEncadeada::setNo(No* no){
     this->no = no;
 }
 
+void ListaEncadeada::adicionar(No* no){
+
+    No* auxiliar;
+
+    if(no != NULL){
+
+        auxiliar = this->ultimoNo;
+        auxiliar->setProx(no);
+        no->setAnterior(auxiliar);
+        no->setProx(NULL);
+        this->ultimoNo = no;
+        
+    }
+
+}

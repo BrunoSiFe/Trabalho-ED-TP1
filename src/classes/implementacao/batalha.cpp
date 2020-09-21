@@ -1,4 +1,4 @@
-#include "classes/batalha.hpp"
+#include "include/batalha.hpp"
 
 using namespace TP;
 
@@ -10,7 +10,15 @@ Batalha::Batalha(){
 
 }
 
-void enviarNaveConserto(int idNave){
+void Batalha::enviarNaveParaBatalha(){
+
+    this->navesBatalha->adicionar(navesEsperandoBatalha->retirarPilha());
+
+}
+
+void Batalha::tirarNaveDoConserto(){
+
+    this->navesEsperandoBatalha->empilha(navesConserto->retirarFila());
 }
 
 void Batalha::receberComando(int comando){

@@ -1,4 +1,4 @@
-#include "classes/fila.hpp"
+#include "include/fila.hpp"
 
 using namespace TP;
 
@@ -29,3 +29,16 @@ void Fila::setNo(No* no){
     this->no = no;
 }
 
+No* Fila::retirarFila(){
+    
+    No* auxiliar = new No(primeiroNo->getItem(),primeiroNo->getAnterior(),primeiroNo->getProx());
+
+    if(primeiroNo->getProx() !=NULL ){
+
+        primeiroNo = primeiroNo->getProx();
+        ultimoNo->setAnterior(NULL);
+
+    }
+
+    return auxiliar;
+}

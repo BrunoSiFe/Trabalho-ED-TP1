@@ -1,10 +1,12 @@
-#ifndef TP_FILA
-#define TP_FILA
-#include "classes/no.hpp"
+#ifndef TP_PILHA
+#define TP_PILHA
+
+#include "no.hpp"
+#include <string>
 
 namespace TP {
     
-    class Fila {
+    class Pilha {
         private:
             
             No* primeiroNo;
@@ -13,7 +15,7 @@ namespace TP {
 
         public:
 
-            Fila();
+            Pilha();
 
             No* getPrimeiro();
             No* getUltimoNo();
@@ -22,6 +24,10 @@ namespace TP {
             void setPrimeiroNo(No* primeiroNo);
             void setUltimoNo(No* ultimoNo);
             void setNo(No* no);
+
+            No* retirarPilha();
+
+            void empilha(No* no);
     };
 }
 
