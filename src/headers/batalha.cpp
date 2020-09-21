@@ -1,4 +1,4 @@
-#include "include/batalha.hpp"
+#include "batalha.hpp"
 
 using namespace TP;
 
@@ -34,27 +34,37 @@ void Batalha::printarFila(){
 
 }
 
-void Batalha::enviarNaveConserto(std::string idNave){
+void Batalha::enviarNaveConserto(int idNave){
 
     this->navesConserto->enfileira(this->navesBatalha->retirar(idNave));
 
 }
 
-void Batalha::receberComando(std::string comando){
+void Batalha::adicionarNaveParaPreparacao(int idNave){
 
-    if(comando == "0")
+    printf("%s", "Aqui");
+    Nave* nave = new Nave(idNave);
+    No* no = new No(nave,NULL,NULL);
+
+    this->navesEsperandoBatalha->empilha(no);
+
+}
+
+void Batalha::receberComando(int comando){
+
+    if(comando == 0)
         enviarNaveParaBatalha();
 
-    if(comando == "-1")
+    if(comando == -1)
         tirarNaveDoConserto();
 
-    if(comando == "-2")
+    if(comando == -2)
         printarPilha();
 
-    if(comando == "-3")
+    if(comando == -3)
         printarFila();
 
-    if(comando !="0" && comando !="-1" && comando !="-2"  && comando !="-3" )
+    if(comando !=0 && comando !=-1 && comando !=-2 && comando !=-3 )
         enviarNaveConserto(comando);
     
 }

@@ -7,15 +7,15 @@ namespace TP {
     class Nave {
         private:
             
-            std::string id;
+            int id;
 
         public:
 
-            Nave(std::string id);
+            Nave(int id);
 
-            std::string getId();
+            int getId();
 
-            void setId(std::string id);
+            void setId(int id);
     };
 }
 

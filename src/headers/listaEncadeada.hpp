@@ -26,7 +26,7 @@ namespace TP {
             void setNo(No* no);
             
             void adicionar(No* no);
-            No* retirar(std::string idNave);
+            No* retirar(long int idNave);
     };
 }
 

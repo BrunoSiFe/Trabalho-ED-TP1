@@ -27,26 +27,26 @@ TMPOUT=tp1.testresult
 # CMD sao os comandos necessarios para executar a regra (por exemplo, chamar o
 # gcc)
 
-$(EXEC): main.cc nave.o no.ofila.o pilha.o listaencadeada.o batalha.o
-	$(CC) $(CFLAGS) main.cc nave.o no.ofila.o pilha.o listaencadeada.o batalha.o -o $(EXEC)
+$(EXEC): main.cpp nave.o no.o fila.o pilha.o listaencadeada.o batalha.o
+	$(CC) $(CFLAGS) main.cpp nave.o no.o fila.o pilha.o listaencadeada.o batalha.o -o $(EXEC)
 
-nave.o: headers/implementacao/nave.cpp
-	$(CC) $(CFLAGS) -c headers/implementacao/nave.cpp -o nave.o
+nave.o: headers/nave.cpp
+	$(CC) $(CFLAGS) -c headers/nave.cpp -o nave.o
 
-no.o: headers/no.cc 
-	$(CC) $(CFLAGS) -c headers/implementacao/no.cc -o no.o
+no.o: headers/no.cpp
+	$(CC) $(CFLAGS) -c headers/no.cpp -o no.o
 
-fila.o: headers/implementacao/fila.cc 
-	$(CC) $(CFLAGS) -c headers/implementacao/fila.cc -o fila.o
+fila.o: headers/fila.cpp 
+	$(CC) $(CFLAGS) -c headers/fila.cpp -o fila.o
 
-pilha.o: headers/implementacao/pilha.cc 
-	$(CC) $(CFLAGS) -c headers/implementacao/pilha.cc -o pilha.o
+pilha.o: headers/pilha.cpp 
+	$(CC) $(CFLAGS) -c headers/pilha.cpp -o pilha.o
 
-listaencadeada.o: headers/implementacao/listaEncadeada.cpp 
-	$(CC) $(CFLAGS) -c headers/implementacao/listaEncadeada.cpp -o listaencadeada.o
+listaencadeada.o: headers/listaEncadeada.cpp 
+	$(CC) $(CFLAGS) -c headers/listaEncadeada.cpp -o listaencadeada.o
 
-batalha.o: headers/implementacao/batalha.cpp 
-	$(CC) $(CFLAGS) -c headers/implementacao/batalha.cpp -o batalha.o
+batalha.o: headers/batalha.cpp 
+	$(CC) $(CFLAGS) -c headers/batalha.cpp -o batalha.o
 
 test: $(EXEC)
 	@bash run_tests.sh $(EXEC) $(TMPOUT)

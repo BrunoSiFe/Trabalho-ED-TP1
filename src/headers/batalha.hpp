@@ -19,7 +19,7 @@ namespace TP {
             void tirarNaveDoConserto();
             void printarPilha();
             void printarFila();
-            void enviarNaveConserto(std::string idNave);
+            void enviarNaveConserto(int idNave);
 
         public:
 
@@ -29,7 +29,9 @@ namespace TP {
             Fila* getNavesConserto();
             Pilha* getNavesEsperandoBatalha();
 
-            void receberComando(std::string comando);
+            void adicionarNaveParaPreparacao(int idNave);
+
+            void receberComando(int comando);
 
             void setNavesBatalha(ListaEncadeada* navesBatalha);
             void setNavesConserto(Fila* navesConserto);

@@ -1,4 +1,4 @@
-#include "include/pilha.hpp"
+#include "pilha.hpp"
 #include <iostream>
 
 using namespace TP;
@@ -19,7 +19,7 @@ No* Pilha::getNo(){
 }
 
 void Pilha::setPrimeiroNo(No* primeiroNo){
-    this->no = no;
+    this->primeiroNo = primeiroNo;
 }
 
 void Pilha::setUltimoNo(No* ultimoNo){

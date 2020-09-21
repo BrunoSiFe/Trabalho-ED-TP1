@@ -1,5 +1,5 @@
-#include "include/no.hpp"
-#include "include/nave.hpp"
+#include "no.hpp"
+#include "nave.hpp"
 
 using namespace TP;
 
@@ -10,15 +10,15 @@ No::No(Nave* item, No* noAnterior, No* noProximo){
 }
 
 No* No::getProx(){
-    this->noProximo;
+    return this->noProximo;
 }
 
 No* No::getAnterior(){
-    this->noAnterior;
+    return this->noAnterior;
 }
 
 Nave* No::getItem(){
-    this->item;
+    return this->item;
 }
 
 void No::setAnterior(No* noAnterior){

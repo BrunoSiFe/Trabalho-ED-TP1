@@ -1,6 +1,3 @@
 .vscode/
 bin/
 build/
-
-src/tp1
-src/*.o

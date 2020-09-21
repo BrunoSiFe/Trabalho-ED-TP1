@@ -1,4 +1,4 @@
-#include "include/listaEncadeada.hpp"
+#include "listaEncadeada.hpp"
 
 using namespace TP;
 
@@ -18,7 +18,7 @@ No* ListaEncadeada::getNo(){
 }
 
 void ListaEncadeada::setPrimeiroNo(No* primeiroNo){
-    this->no = no;
+    this->primeiroNo = primeiroNo;
 }
 
 void ListaEncadeada::setUltimoNo(No* ultimoNo){
@@ -45,7 +45,7 @@ void ListaEncadeada::adicionar(No* no){
 
 }
 
-No* ListaEncadeada::retirar(std::string idNave){
+No* ListaEncadeada::retirar(long int idNave){
 
     No* auxiliarUlt = this->ultimoNo;
     No* auxiliarPrimeiro = this->primeiroNo;

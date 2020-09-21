@@ -1,4 +1,4 @@
-#include "include/fila.hpp"
+#include "fila.hpp"
 #include <iostream>
 
 using namespace TP;
@@ -19,7 +19,7 @@ No* Fila::getNo(){
 }
 
 void Fila::setPrimeiroNo(No* primeiroNo){
-    this->no = no;
+    this->primeiroNo = primeiroNo;
 }
 
 void Fila::setUltimoNo(No* ultimoNo){
