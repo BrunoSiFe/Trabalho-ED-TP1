@@ -50,9 +50,14 @@ void ListaEncadeada::adicionar(No* no){
         
     }
 
-    if(primeiroNo->getItem()->getId() == 0){
+    if(primeiroNo != NULL){
+        if(primeiroNo->getItem()->getId() == 0){
+            primeiroNo = no;
+        }
+    }else{
         primeiroNo = no;
     }
+    
 
     std::cout << "nave " << no->getItem()->getId() << " em combate" << std::endl;
 
@@ -92,6 +97,9 @@ No* ListaEncadeada::retirar(int idNave){
         }
 
     }
+
+    if(auxiliarTroca->getItem()->getId() == primeiroNo->getItem()->getId())
+        primeiroNo = auxiliarTroca->getProx();
 
     return auxiliarTroca;
 

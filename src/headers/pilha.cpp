@@ -32,7 +32,10 @@ void Pilha::setNo(No* no){
 
 No* Pilha::retirarPilha(){
 
-    No* auxiliar = new No(ultimoNo->getItem(),ultimoNo->getAnterior(),ultimoNo->getProx());
+    No* auxiliar = new No();
+    auxiliar->setAnterior(this->ultimoNo->getAnterior());
+    auxiliar->setProx(this->ultimoNo->getProx());
+    auxiliar->setItem(this->ultimoNo->getItem());
 
     if(ultimoNo->getAnterior() != NULL){
         
@@ -82,16 +85,18 @@ void Pilha::empilha(No* no){
 void Pilha::empilhaConserto(No* no){
 
     if(ultimoNo != NULL){
-        No* auxiliar = new No(ultimoNo->getItem(),ultimoNo->getAnterior(),ultimoNo->getProx());
+        No* auxiliar = new No();
+        auxiliar->setAnterior(this->ultimoNo->getAnterior());
+        auxiliar->setProx(this->ultimoNo->getProx());
+        auxiliar->setItem(this->ultimoNo->getItem());
 
 
         if(no != NULL){
 
-            ultimoNo = no;
-
             no->setAnterior(auxiliar);
             no->setProx(NULL);
         
+            ultimoNo = no;
             auxiliar->setProx(no);
 
         }
